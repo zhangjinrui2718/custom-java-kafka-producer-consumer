@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class KafkaProNewApi {
     public static void send() throws InterruptedException {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "123.57.84.60:9092");
+        props.put("bootstrap.servers", "#");
         props.put("acks", "all"); //ack方式，all，会等所有的commit最慢的方式
         props.put("retries", 0); //失败是否重试，设置会有可能产生重复数据
         props.put("batch.size", 16384); //对于每个partition的batch buffer大小

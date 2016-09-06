@@ -48,7 +48,7 @@ public class kafkaConsumer extends Thread{
 
 	private ConsumerConnector createConsumer() {
 		Properties properties = new Properties();
-		properties.put("zookeeper.connect", "123.57.84.60:2181");
+		properties.put("zookeeper.connect", "#");
 		properties.put("group.id", "group4");
 		properties.put("auto.commit.enable", "true");
 		properties.put("zookeeper.session.timeout.ms", "20000");

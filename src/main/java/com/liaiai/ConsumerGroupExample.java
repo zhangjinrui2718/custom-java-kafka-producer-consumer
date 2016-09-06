@@ -49,7 +49,7 @@ public class ConsumerGroupExample {
 
     private static ConsumerConfig createConsumerConfig(String a_zookeeper, String a_groupId) {
         Properties props = new Properties();
-        props.put("zookeeper.connect", "123.57.84.60:2181");
+        props.put("zookeeper.connect", "#");
         props.put("group.id", "push-token");
         props.put("zookeeper.session.timeout.ms", "60000");
         props.put("zookeeper.sync.time.ms", "2000");

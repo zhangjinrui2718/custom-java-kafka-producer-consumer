@@ -87,13 +87,13 @@ public class kafkaProducer extends Thread{
 		Properties properties = new Properties();
 
 		properties.put("serializer.class", StringEncoder.class.getName());
-		properties.put("metadata.broker.list", "123.57.84.60:9092");
+		properties.put("metadata.broker.list", "#");
 		return new Producer<Integer, String>(new ProducerConfig(properties));
 	 }
 	
 	
 	public static void main(String[] args) {
-		new kafkaProducer("test_charge").start();// 使用kafka集群中创建好的主题 test
+		new kafkaProducer("test_charge").start();// 使用kafka集群中创建好的主题 test 123.57.84.60:9092,123.56.150.115:9092
 		
 	}
 	 

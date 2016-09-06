@@ -13,7 +13,7 @@ import java.util.Properties;
 public class KafkaConsNewApi {
     public static void consumer(){
         Properties props = new Properties();
-        props.put("bootstrap.servers", "123.57.84.60:9092");
+        props.put("bootstrap.servers", "#");
         props.put("group.id", "test");
         props.put("enable.auto.commit", "true");  //自动commit
         props.put("auto.commit.interval.ms", "1000"); //定时commit的周期
@@ -34,3 +34,4 @@ public class KafkaConsNewApi {
         consumer();
     }
 }
+
