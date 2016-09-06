@@ -60,22 +60,22 @@ public class kafkaProducer extends Thread{
 			chargeResponseVo.setPayHeadImg("http://test.fada.cim/qdja/skaldksaldk.jpg");
 			chargeResponseVo.setSettingId("dda");
 			chargeResponseVo.setDistribution("asda");
-
-			ChargeResponseVo chargeResponseVo2=new ChargeResponseVo();
-			chargeResponseVo2.setPayerId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
-			chargeResponseVo2.setAmount(new BigDecimal("12.1"));
-			chargeResponseVo2.setOrderId(100000462l);
-			chargeResponseVo2.setLiveUserId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
-			chargeResponseVo2.setPayHeadImg("http://test.fada.cim/qdja/skaldksaldk.jpg");
-			chargeResponseVo2.setSettingId("dda");
-			chargeResponseVo2.setDistribution("asda");
-			List<ChargeResponseVo> list=new ArrayList<ChargeResponseVo>();
-			list.add(chargeResponseVo);
-			list.add(chargeResponseVo2);
-			producer.send(new KeyedMessage<Integer, String>(topic, JSON.toJSONString(list)));
-			System.out.println("发送了: " + JSON.toJSONString(list));
+			chargeResponseVo.setAppId("wtx");
+//			ChargeResponseVo chargeResponseVo2=new ChargeResponseVo();
+//			chargeResponseVo2.setPayerId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
+//			chargeResponseVo2.setAmount(new BigDecimal("12.1"));
+//			chargeResponseVo2.setOrderId(100000462l);
+//			chargeResponseVo2.setLiveUserId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
+//			chargeResponseVo2.setPayHeadImg("http://test.fada.cim/qdja/skaldksaldk.jpg");
+//			chargeResponseVo2.setSettingId("dda");
+//			chargeResponseVo2.setDistribution("asda");
+//			List<ChargeResponseVo> list=new ArrayList<ChargeResponseVo>();
+//			list.add(chargeResponseVo);
+//			list.add(chargeResponseVo2);
+			producer.send(new KeyedMessage<Integer, String>(topic, JSON.toJSONString(chargeResponseVo)));
+			System.out.println("发送了: " + JSON.toJSONString(chargeResponseVo));
 			try {
-				TimeUnit.SECONDS.sleep(5);
+				TimeUnit.SECONDS.sleep(1);
 				i++;
 			} catch (InterruptedException e) {
 				e.printStackTrace();

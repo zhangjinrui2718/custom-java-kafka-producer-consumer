@@ -5,6 +5,18 @@
   <groupId>bj.zm</groupId>
   <artifactId>kafka</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
   <packaging>jar</packaging>
 
   <name>kafka</name>
@@ -31,6 +43,11 @@
 		<artifactId>kafka_2.11</artifactId>
 		<version>0.8.2.2</version>
 	</dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>0.10.0.0</version>
+    </dependency>
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
