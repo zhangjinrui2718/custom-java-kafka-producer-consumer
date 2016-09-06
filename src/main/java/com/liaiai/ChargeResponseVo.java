@@ -15,8 +15,13 @@ import java.math.BigDecimal;
 @lombok.Data
 @ToString
 public class ChargeResponseVo {
-    private String orderId;
-    private String liveId;
-    private String userId;
+    private String appId;
+    private String distribution;
     private BigDecimal amount;
+    private Long orderId;
+    private String settingId;
+    private String payerId;
+    private String payerName;
+    private String payHeadImg;
+    private String liveUserId;
 }

@@ -53,15 +53,22 @@ public class kafkaProducer extends Thread{
 		int i=0;
 		while(true){
 			ChargeResponseVo chargeResponseVo=new ChargeResponseVo();
-			chargeResponseVo.setUserId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
+			chargeResponseVo.setPayerId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
 			chargeResponseVo.setAmount(new BigDecimal("12.1"));
-			chargeResponseVo.setLiveId("3918");
-			chargeResponseVo.setOrderId("100000462");
+			chargeResponseVo.setOrderId(100000462l);
+			chargeResponseVo.setLiveUserId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
+			chargeResponseVo.setPayHeadImg("http://test.fada.cim/qdja/skaldksaldk.jpg");
+			chargeResponseVo.setSettingId("dda");
+			chargeResponseVo.setDistribution("asda");
+
 			ChargeResponseVo chargeResponseVo2=new ChargeResponseVo();
-			chargeResponseVo2.setUserId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
-			chargeResponseVo2.setAmount(new BigDecimal("122.1"));
-			chargeResponseVo2.setLiveId("3918");
-			chargeResponseVo2.setOrderId("100000462");
+			chargeResponseVo2.setPayerId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
+			chargeResponseVo2.setAmount(new BigDecimal("12.1"));
+			chargeResponseVo2.setOrderId(100000462l);
+			chargeResponseVo2.setLiveUserId("10000000af797eb4d6a84e7ab8029d6883739c3410000212");
+			chargeResponseVo2.setPayHeadImg("http://test.fada.cim/qdja/skaldksaldk.jpg");
+			chargeResponseVo2.setSettingId("dda");
+			chargeResponseVo2.setDistribution("asda");
 			List<ChargeResponseVo> list=new ArrayList<ChargeResponseVo>();
 			list.add(chargeResponseVo);
 			list.add(chargeResponseVo2);
@@ -78,7 +85,7 @@ public class kafkaProducer extends Thread{
 
 	private Producer createProducer() {
 		Properties properties = new Properties();
-//		properties.put("zookeeper.connect", "localhost:2181");
+
 		properties.put("serializer.class", StringEncoder.class.getName());
 		properties.put("metadata.broker.list", "123.57.84.60:9092");
 		return new Producer<Integer, String>(new ProducerConfig(properties));
@@ -86,7 +93,7 @@ public class kafkaProducer extends Thread{
 	
 	
 	public static void main(String[] args) {
-		new kafkaProducer("test_charge_callback").start();// 使用kafka集群中创建好的主题 test
+		new kafkaProducer("test_charge").start();// 使用kafka集群中创建好的主题 test
 		
 	}
 	 

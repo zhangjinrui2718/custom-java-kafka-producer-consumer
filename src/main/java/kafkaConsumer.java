@@ -42,25 +42,24 @@ public class kafkaConsumer extends Thread{
 		 ConsumerIterator<byte[], byte[]> iterator =  stream.iterator();
 		 while(iterator.hasNext()){
 			 String message = new String(iterator.next().message());
-//			 System.out.println("接收到: " + message);
+			 System.out.println("接收到: " + message);
 		 }
 	}
 
 	private ConsumerConnector createConsumer() {
 		Properties properties = new Properties();
 		properties.put("zookeeper.connect", "123.57.84.60:2181");
-		properties.put("group.id", "group1");
+		properties.put("group.id", "group4");
 		properties.put("auto.commit.enable", "true");
 		properties.put("zookeeper.session.timeout.ms", "20000");
-		properties.put("zookeeper.sync.time.ms", "10000");
-		properties.put("auto.commit.interval.ms", "1000");
 		properties.put("auto.offset.reset", "smallest");
+		properties.put("fetch.message.max.bytes", "10486000");
 		return Consumer.createJavaConsumerConnector(new ConsumerConfig(properties));
 	 }
 	
 	
 	public static void main(String[] args) {
-		new kafkaConsumer("test-01").start();// 使用kafka集群中创建好的主题 test
+		new kafkaConsumer("test_charge").start();// 使用kafka集群中创建好的主题 test
 		
 	}
 	 
