@@ -4,7 +4,9 @@ import org.apache.kafka.clients.producer.*;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-
+/**
+ * 这个是0.10版本客户端的生产者代码，提供了回调的send方法 直接连接kafka
+ */
 public class KafkaProNewApi {
     public static void send() throws InterruptedException {
         Properties props = new Properties();
