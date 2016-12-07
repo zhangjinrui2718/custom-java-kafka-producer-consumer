@@ -1,4 +1,4 @@
-package com.liaiai;
+package com.liaiai.kafka8and9;
 
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
@@ -17,8 +17,9 @@ public class ConsumerTest implements Runnable  {
 
     public void run() {
         ConsumerIterator<byte[], byte[]> it = m_stream.iterator();
-        while (it.hasNext())
+        while (it.hasNext()){
             System.out.println("Thread " + m_threadNumber + ": " + new String(it.next().message()));
+        }
         System.out.println("Shutting down Thread: " + m_threadNumber);
     }
 }

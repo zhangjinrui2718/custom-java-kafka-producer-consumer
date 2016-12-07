@@ -1,4 +1,4 @@
-package com.liaiai.k10;
+package com.liaiai.kafka10;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Properties;
 
 /**
- * Created by lilaizhen on 16/9/6.
+ * 这个是0.10版本的客户端的消费者
  */
 public class KafkaConsNewApi {
     public static void consumer(){

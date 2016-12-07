@@ -1,4 +1,4 @@
-package com.liaiai.k10;
+package com.liaiai.kafka10;
 
 import org.apache.kafka.clients.producer.*;
 import java.util.Properties;

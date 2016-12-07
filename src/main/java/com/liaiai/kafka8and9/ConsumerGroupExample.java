@@ -1,4 +1,4 @@
-package com.liaiai;
+package com.liaiai.kafka8and9;
 
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.KafkaStream;
@@ -12,7 +12,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by lilaizhen on 16/9/1.
+ * 这个例子是官方的例子 对应的kafkaclient的版本是0.9 和 之前的版本
+ * 如果使用0.10的话则没有这么多问题
  */
 public class ConsumerGroupExample {
     private final ConsumerConnector consumer;
@@ -31,7 +32,8 @@ public class ConsumerGroupExample {
     }
 
     public void run(int a_numThreads) {
-        Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
+        Map<String, Integer> topicCountMap = new HashMap<>();
+        //这个版本的kafka的这个消费线程填写要注意。否则收不到数据
         topicCountMap.put(topic, new Integer(a_numThreads));
         Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumer.createMessageStreams(topicCountMap);
         List<KafkaStream<byte[], byte[]>> streams = consumerMap.get(topic);
@@ -49,8 +51,8 @@ public class ConsumerGroupExample {
 
     private static ConsumerConfig createConsumerConfig(String a_zookeeper, String a_groupId) {
         Properties props = new Properties();
-        props.put("zookeeper.connect", "#");
-        props.put("group.id", "push-token");
+        props.put("zookeeper.connect", a_zookeeper);
+        props.put("group.id", a_groupId);
         props.put("zookeeper.session.timeout.ms", "60000");
         props.put("zookeeper.sync.time.ms", "2000");
         props.put("auto.commit.interval.ms", "1000");
@@ -59,9 +61,9 @@ public class ConsumerGroupExample {
     }
 
     public static void main(String[] args) {
-        String zooKeeper = "";
-        String groupId = "";
-        String topic = "test_live_msg";
+        String zooKeeper = "localhost:2181";
+        String groupId = "push-token";
+        String topic = "test";
 
         ConsumerGroupExample example = new ConsumerGroupExample(zooKeeper, groupId, topic);
         example.run(1);
